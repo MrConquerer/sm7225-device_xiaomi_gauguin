@@ -1,0 +1,1 @@
+# sm7225-device_xiaomi_gauguin
