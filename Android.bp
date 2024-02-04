@@ -1,0 +1,41 @@
+// Declare a namespace for the modules in this directory and its subdirectories
+soong_namespace {
+  // Import the frameworks/base namespace to use its modules
+  #imports: [
+    #"frameworks/base",
+  #],
+}
+
+// Define a shared library module
+#cc_library_shared {
+  // Use a unique and descriptive name for the module
+  #name: "libxmlrpc++",
+  // Enable run-time type information for C++
+  #rtti: true,
+  // Specify the compiler flags for C++
+  #cppflags: [
+    #"-Wall",
+    #"-Werror",
+    #"-fexceptions",
+  #],
+  // Export the include directories for other modules to use
+  #export_include_dirs: ["src"],
+  // Specify the source files for the module
+  #srcs: ["src/**/*.cpp"],
+  // Disable the module for darwin targets
+  #target: {
+    #darwin: {
+      #enabled: false,
+    #},
+  #},
+#}
+
+// Define a binary module
+#cc_binary {
+  // Use a unique and descriptive name for the module
+  #name: "gzip",
+  // Use the same properties as the libxmlrpc++ module, except for the name and srcs
+  #defaults: ["libxmlrpc++"],
+  // Specify the source file for the module
+  #srcs: ["src/test/minigzip.c"],
+#}
