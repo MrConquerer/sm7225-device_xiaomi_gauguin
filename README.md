@@ -16,7 +16,3 @@ This is an Android device tree for the Xiaomi Mi 10i (codename: gauguin).
 | Display                 | 1080 x 2400 pixels, 20:9 ratio (~395 ppi density)               |
 | Rear Camera             | 108 MP, f/1.8, 26mm (wide), 1/1.33", 0.8µm, PDAF                |
 | Front Camera            | 16 MP, f/2.5, (wide), 1/3.06" 1.0µm                             |
-
-## Device picture
-
-![Xiaomi Mi 10i](https://dev.to/sankaralingamv/readmemd-the-ultimate-guide-mge)
