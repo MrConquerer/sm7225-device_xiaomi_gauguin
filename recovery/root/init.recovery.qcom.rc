@@ -1,4 +1,3 @@
-
 on init
     # Set the brightness of the backlight
     write /sys/class/backlight/panel0-backlight/brightness 200
