@@ -1,0 +1,16 @@
+cc_library {
+    name: "libinit_gauguin",
+    static: true,
+    srcs: ["init_gauguin.cpp"],
+    static_libs: ["libbase"],
+    local_include_dirs: [
+        "system/core/base/include",
+        "system/core/init"
+    ],
+    target: {
+        recovery: {
+            enabled: true,
+            whole_static_libs: ["libbase"],
+        },
+    },
+}
