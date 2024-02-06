@@ -15,8 +15,4 @@ COMMON_LUNCH_CHOICES := \
     $(PRODUCT)-eng
 
 # Override any other configurations that are different from the aosp_arm64 product
-
-
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 ...
