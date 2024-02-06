@@ -27,12 +27,10 @@ def AddImage(info, basename, dest):
   image_path = Path(image_path)
   # Use the with statement to handle opening and closing the file
   with info.input_zip.open(image_path) as image_file:
-    # Read the data from the image file
-    data = image_file.read()
     # Write the data to the output zip with the name
-    common.ZipWriteStr(info.output_zip, name, data)
-    # Append an extra command to the updater-script to extract the file to the destination
-    info.script.AppendExtra(f'package_extract_file("{name}", "{dest}");')
+    common.ZipWrite(info.output_zip, name, image_file)
+    # Write the image file to the destination partition
+    info.script.WriteRawImage(dest, name)
 
 # Define a function that performs the common tasks for both full and incremental OTA installation
 def OTA_InstallEnd(info):
