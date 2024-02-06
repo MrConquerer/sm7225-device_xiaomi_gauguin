@@ -14,5 +14,10 @@
     "target_path": "kernel/xiaomi/gauguin",
     "branch": "main",
   },
+  {
+    "repository": "MrConquerer/XiaomiParts",
+    "target_path": "sm7225-device_xiaomi_gauguin/parts",
+    "branch": "main",
+  },
   ...
 ]
