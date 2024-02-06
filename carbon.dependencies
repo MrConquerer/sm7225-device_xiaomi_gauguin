@@ -2,22 +2,21 @@
   {
     "repository": "MrConquerer/sm7225-device_xiaomi_gauguin",
     "target_path": "device/xiaomi/gauguin",
-    "branch": "cr-9.0",
+    "branch": "cr-9.0"
   },
   {
     "repository": "MrConquerer/vendor_xiaomi_gauguin",
     "target_path": "vendor/xiaomi/gauguin",
-    "branch": "cr-9.0",
+    "branch": "cr-9.0"
   },
   {
-    "repository": "MrConquerer/kernel_xiaomi_gauguin",
+    "repository": "Molyuu/neko_kernel_xiaomi_gauguin",
     "target_path": "kernel/xiaomi/gauguin",
-    "branch": "main",
+    "branch": "cr-9.0"
   },
   {
     "repository": "MrConquerer/XiaomiParts",
     "target_path": "sm7225-device_xiaomi_gauguin/parts",
-    "branch": "main",
-  },
-  ...
+    "branch": "main"
+  }
 ]
