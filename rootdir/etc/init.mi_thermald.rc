@@ -1,0 +1,9 @@
+on boot
+    start mi_thermald
+
+service mi_thermald $SYSTEM/bin/mi_thermald
+    class main
+    user root
+    group system
+    seclabel u:r:thermalservice:s0
+    disabled

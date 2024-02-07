@@ -1,0 +1,11 @@
+on post-fs-data
+    start vendor.light-qti
+
+service vendor.light-qti /system/bin/hw/android.hardware.lights@2.0-service
+    class hal
+    user system
+    group system
+    shutdown critical
+    disabled
+    override
+    seclabel u:r:hal_light_default:s0
