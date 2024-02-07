@@ -1,23 +1,16 @@
-LOCAL_PATH := $(CURDIR)
+# Set the local path to the current directory
+LOCAL_PATH := $(LOCAL_PATH)
 
-ifeq ($(TARGET_DEVICE),gauguin)
-  subdir_makefiles=$(filter %.rc,$(sort $(wildcard $(LOCAL_PATH)/*)))
-  $(info $(subdir_makefiles))
-  $(patsubst %,import %,$(subdir_makefiles))
+# Include all subdirectory makefiles
+include $(call all-subdir-makefiles)
+
+# Define a module for the shared library
+include $(CLEAR_VARS)
+LOCAL_MODULE := mylib
+LOCAL_SRC_FILES := main.c
+include $(BUILD_SHARED_LIBRARY)
+
+# Define the device-specific framework manifest file
+ifeq ($(TARGET_PRODUCT),gauguin)
+  DEVICE_FRAMEWORK_MANIFEST_FILE := $(TARGET_DEVICE_DIR)/configs/vintf/framework_manifest.xml
 endif
-
-# Set init and its forked children's oom_adj.
-write /proc/1/oom_score_adj $(shell cat /proc/1/oom_score_adj)
-
-# Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
-write /sys/fs/selinux/checkreqprot $(shell cat /sys/fs/selinux/checkreqprot)
-
-# Set the security context for the init process.
-setcon u:r:init:s0
-
-# Set the security context for the ueventd and watchdogd processes.
-setcon u:r:ueventd:s0
-setcon u:r:watchdogd:s0
-
-# Set the SELinux mode based on the system property.
-setenforce $(shell getenforce)
