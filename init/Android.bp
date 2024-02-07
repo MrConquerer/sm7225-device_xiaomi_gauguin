@@ -1,16 +1,14 @@
-// Define a static library target
-cc_library_static(
-    name = "libinit_gauguin",
-    recovery_available = true,
-    // Specify the source files
-    srcs = ["init_gauguin.cpp"],
-    // Specify the dependencies
-    static_libs = [
-    ":libbase",
-    ],
-    // Specify the include directories
-    cflags = [
-        "-Isystem/core/base/include",
-        "-Isystem/core/init",
-    ],
-)
+// This rule defines a static library named libinit_gauguin
+cc_library_static {
+    name: "libinit_gauguin", // the name of the library
+    srcs: ["init_gauguin.cpp"], // the source file for the library
+    hdrs: ["init_gauguin.h"], // the header file for the library
+    deps: ["//system/libbase:libbase"], // the dependency on another cc_library rule
+    linkopts: ["-fPIC"], // the linker option to enable position-independent code
+    copts: ["-g"], // the compiler option to enable debug symbols
+    recovery_available: true, // the flag to indicate that the library can be used in recovery mode
+    include_dirs: [ // the list of directories to search for header files
+        "system/core/init",
+        "system/libbase/include"
+    ]
+}
