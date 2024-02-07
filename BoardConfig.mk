@@ -31,7 +31,7 @@ BOARD_HAS_QCA_FM_SOC := "cherokee"
 BOARD_HAVE_QCOM_FM := true
 
 # Framework only update 
-BOARD_VNDK_VERSION := 31
+BOARD_VNDK_VERSION := current
 
 # Binder
 TARGET_USES_64_BIT_BINDER := true
