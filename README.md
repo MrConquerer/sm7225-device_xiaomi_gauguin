@@ -1,7 +1,14 @@
 # sm7225-device_xiaomi_gauguin
 
 This is an Android device tree for the Xiaomi Mi 10i (codename: gauguin).
+
+
+
+
 ⚠️this tree was not for your use. don't cry after you face error. better u use other source expect LineageOS :xd⚠️
+
+
+
 ## Device specifications
 
 | Feature                 | Specification                                                   |
