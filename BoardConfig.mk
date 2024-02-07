@@ -96,7 +96,7 @@ TARGET_KERNEL_CLANG_COMPILE := true
 BOARD_KERNEL_HEADER_VERSION := 3 # header version of the kernel image
 
 # Dynamic partitions configuration
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_BUILD_AB_IMAGE := true
 BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_USES_METADATA_PARTITION := true
