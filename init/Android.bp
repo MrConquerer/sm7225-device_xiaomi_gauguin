@@ -1,16 +1,16 @@
-cc_library {
-    name: "libinit_gauguin",
-    static: true,
-    srcs: ["init_gauguin.cpp"],
-    static_libs: ["libbase"],
-    local_include_dirs: [
-        "system/core/base/include",
-        "system/core/init"
+// Define a static library target
+cc_library_static(
+    name = "libinit_gauguin",
+    recovery_available = true,
+    // Specify the source files
+    srcs = ["init_gauguin.cpp"],
+    // Specify the dependencies
+    static_libs = [
+    ":libbase",
     ],
-    target: {
-        recovery: {
-            enabled: true,
-            whole_static_libs: ["libbase"],
-        },
-    },
-}
+    // Specify the include directories
+    cflags = [
+        "-Isystem/core/base/include",
+        "-Isystem/core/init",
+    ],
+)
