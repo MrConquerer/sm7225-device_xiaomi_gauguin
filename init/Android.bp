@@ -1,14 +1,20 @@
-// This rule defines a static library named libinit_gauguin
+// cc_library_static: Defines a statically linked C++ library.
 cc_library_static {
-    name: "libinit_gauguin", // the name of the library
-    srcs: ["init_gauguin.cpp"], // the source file for the library
-    hdrs: ["init_gauguin.h"], // the header file for the library
-    deps: ["//system/libbase:libbase"], // the dependency on another cc_library rule
-    linkopts: ["-fPIC"], // the linker option to enable position-independent code
-    copts: ["-g"], // the compiler option to enable debug symbols
-    recovery_available: true, // the flag to indicate that the library can be used in recovery mode
-    include_dirs: [ // the list of directories to search for header files
-        "system/core/init",
-        "system/libbase/include"
+    // name: The name of the library. This is used to reference the library in other parts of the build system.
+    name: "libinit_gauguin",
+    
+    // recovery_available: If set to true, this library will be included in the recovery build of the device.
+    recovery_available: true,
+    
+    // srcs: A list of source files that will be compiled into the library.
+    srcs: ["init_gauguin.cpp"],
+    
+    // whole_static_libs: Static libraries that should be included whole, without stripping any unused symbols.
+    whole_static_libs: ["libbase"],
+    
+    // include_dirs: Directories that the build system will search for header files during compilation.
+    include_dirs: [
+        "system/core/base/include", // Includes the headers from the base module of the system core.
+        "system/core/init" // Includes the headers necessary for system initialization.
     ]
 }
